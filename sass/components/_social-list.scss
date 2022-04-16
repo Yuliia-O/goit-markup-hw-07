@@ -18,20 +18,21 @@
 
     color: var(--social-icons);
     transition: background-color 250ms var(--trans-time-function);
-}
 
-.social-link:hover,
-.social-link:focus {
-    background-color: var(--accent-color);
+    &:hover,
+    &:focus {
+        background-color: var(--accent-color);
+    }
 }
 
 .social-icon {
     fill: var(--social-icons);
 
     transition: fill 250ms var(--trans-time-function);
+
+    .social-link:hover &,
+    .social-link:focus & {
+        fill: var(--social-icons-hover-light);
+    }
 }
 
-.social-link:hover .social-icon,
-.social-link:focus .social-icon {
-    fill: var(--social-icons-hover-light);
-}

@@ -14,9 +14,9 @@
     background-color: var(--accent-color);
 
     transition: background-color 250ms var(--trans-time-function);
-}
 
-.order-btn:hover,
-.order-btn:focus {
-    background-color: var(--order-button-hover-color);
+    &:hover,
+    &:focus {
+        background-color: var(--order-button-hover-color);
+    }
 }

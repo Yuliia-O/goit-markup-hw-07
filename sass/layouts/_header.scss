@@ -27,17 +27,17 @@
 
 .nav-list-link.current {
     position: relative;
-}
 
-.nav-list-link.current::after {
-    content: '';
-    position: absolute;
-    left: 0px;
-    bottom: -1px;
-    width: 100%;
-    height: 4px;
-    background-color: var(--accent-color);
-    border-radius: 2px;
+    &::after {
+        content: '';
+        position: absolute;
+        left: 0px;
+        bottom: -1px;
+        width: 100%;
+        height: 4px;
+        background-color: var(--accent-color);
+        border-radius: 2px;
+    }
 }
 
 .contact-list {
@@ -59,12 +59,12 @@
     letter-spacing: 0.02em;
 
     transition: color 250ms var(--trans-time-function);
-}
 
-.nav-list-link:hover,
-.nav-list-link:focus,
-.current {
-    color: var(--accent-color);
+    &:hover,
+    &:focus,
+    &.current {
+        color: var(--accent-color);
+    }
 }
 
 .icon-envelope,

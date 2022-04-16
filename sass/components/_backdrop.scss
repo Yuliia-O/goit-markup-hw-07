@@ -7,12 +7,12 @@
     background-color: rgba(0, 0, 0, 0.2);
 
     transition: opacity 300ms ease, visibility 300ms ease;
-}
 
-.backdrop.is-hidden {
-    visibility: hidden;
-    opacity: 0;
-    pointer-events: none;
+    &.is-hidden {
+        visibility: hidden;
+        opacity: 0;
+        pointer-events: none;
+    }
 }
 
 .modal {
@@ -52,11 +52,11 @@
 
 .modal-close-icon {
     transition: fill 250ms var(--trans-time-function);
-}
 
-.modal-close-button:hover .modal-close-icon,
-.modal-close-button:focus .modal-close-icon {
-    fill: var(--accent-color);
+    .modal-close-button:hover &,
+    .modal-close-button:focus & {
+        fill: var(--accent-color);
+    }
 }
 
 .modal-action-text {
@@ -90,6 +90,11 @@
     transform: translateY(-50%);
 
     transition: fill 250ms var(--trans-time-function);
+
+    .modal-input:focus + &,
+    .modal-input:hover + & {
+        fill: var(--accent-color);
+    }
 }
 
 .modal-input,
@@ -104,20 +109,13 @@
     border-radius: 4px;
 
     transition: border-color 250ms var(--trans-time-function);
+
+    &:focus, &:hover {
+        outline: none;
+        border-color: var(--accent-color);
+    }
 }
 
-.modal-input:focus,
-.modal-input-msg:focus,
-.modal-input:hover,
-.modal-input-msg:hover {
-    outline: none;
-    border-color: var(--accent-color);
-}
-
-.modal-input:focus+.modal-input-icon,
-.modal-input:hover+.modal-input-icon {
-    fill: var(--accent-color);
-}
 
 .modal-input-msg {
     padding: 12px 16px;
@@ -128,15 +126,22 @@
     resize: none;
 
     transition: border-color 250ms var(--trans-time-function);
+
+    &:focus,
+    &:hover {
+        outline: none;
+        border-color: var(--accent-color);
+    }
+
+    &::placeholder {
+        font-size: 12px;
+        line-height: 1.17;
+        letter-spacing: 0.01em;
+    
+        color: rgba(117, 117, 117, 0.5);
+    }
 }
 
-.modal-input-msg::placeholder {
-    font-size: 12px;
-    line-height: 1.17;
-    letter-spacing: 0.01em;
-
-    color: rgba(117, 117, 117, 0.5);
-}
 
 .modal-form-checkbox-wrapper {
     margin-bottom: 30px;
@@ -151,34 +156,35 @@
     display: flex;
     align-items: center;
     justify-content: center;
-}
 
-.accept-policy-input:focus+.accept-policy-label::before,
-.accept-policy-input:hover+.accept-policy-label::before {
-    outline: 1px solid var(--primary-font-color);
-}
+    &::before {
+        content: "";
+        display: inline-block;
+        width: 16px;
+        height: 15px;
+        margin-right: 8px;
+        border: 2px solid var(--titles-font-color);
+        border-radius: 2px;
+        cursor: pointer;
+    
+        transition: background-color 250ms var(--trans-time-function),
+            border-color 250ms var(--trans-time-function),
+            background-image 250ms var(--trans-time-function);
 
-.accept-policy-input:checked+.accept-policy-label::before {
-    background-color: var(--accent-color);
-    border-color: var(--accent-color);
-    background-image: url(../images/icons/checked-icon.svg);
-    background-repeat: no-repeat;
+        .accept-policy-input:focus + &,
+        .accept-policy-input:hover + & {
+            outline: 1px solid var(--primary-font-color);
+        }
 
-}
-
-.accept-policy-label::before {
-    content: "";
-    display: inline-block;
-    width: 16px;
-    height: 15px;
-    margin-right: 8px;
-    border: 2px solid var(--titles-font-color);
-    border-radius: 2px;
-    cursor: pointer;
-
-    transition: background-color 250ms var(--trans-time-function),
-        border-color 250ms var(--trans-time-function),
-        background-image 250ms var(--trans-time-function);
+        .accept-policy-input:checked + & {
+            background-color: var(--accent-color);
+            border-color: var(--accent-color);
+            background-image: url(../images/icons/checked-icon.svg);
+            background-repeat: no-repeat;
+        
+        }
+        
+    }
 }
 
 .modal .order-btn {
@@ -186,9 +192,10 @@
     margin-right: auto;
     margin-left: auto;
     padding: 10px 56px;
+
+    &:focus,
+    &:hover {
+        background-color: var(--order-button-hover-color);
+    }
 }
 
-.modal .order-btn:focus,
-.modal .order-btn:hover {
-    background-color: var(--order-button-hover-color);
-}
