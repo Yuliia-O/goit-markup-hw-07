@@ -31,14 +31,14 @@
 
     transition: color 250ms var(--trans-time-function);
 
+    &[target='_blank'] {
+        color: var(--font-color-dark-background);
+    }
+
     &:hover,
     &:focus {
         color: var(--accent-color);
     }
-}
-
-.address-link[target='_blank'] {
-    color: var(--font-color-dark-background);
 }
 
 .footer-title {
