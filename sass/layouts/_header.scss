@@ -1,18 +1,17 @@
 .header {
     border-bottom: 1px solid var(--header-underline-color);
-}
 
-.header__container {
+&__container {
     justify-content: space-between;
 }
 
-.header__container,
+&__container,
 .navigation {
     display: flex;
     align-items: center;
 }
 
-.header .logo {
+.logo {
     margin-right: 94px;
 }
 
@@ -42,11 +41,12 @@
 
 .contact-list {
     display: flex;
+
+    &__item:not(:last-child) {
+        margin-right: 50px;
+    }
 }
 
-.contact-list__item:not(:last-child) {
-    margin-right: 50px;
-}
 
 .navigation__link,
 .contact-list__link {
@@ -72,4 +72,5 @@
 .contact-list__icon-smartphone {
     margin-right: 10px;
     fill: currentColor;
+}
 }
